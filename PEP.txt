@@ -1,0 +1,11 @@
+We volgen PEP 8.
+PEP8: https://www.python.org/dev/peps/ pep-0008/.
+Enkele richtlijnen. Strenger dan vorig jaar. We gaan dit jaar nog meer op de vorm letten.
+Bovenaan ons programma importeren we de nodige packages
+In gedaante from XXX import YYY
+Elke regel alfabetisch geordend
+Daarna de modules, eveneens alfabetisch geordend
+Daarna komen de functies
+Daarna de klassen indien aanwezig
+Helemaal onderaan de main block
+Geen superieur programmeren, het is tenslotte hacken ;-) We willen snelheid, gemak en genoeg betrouwbaar
